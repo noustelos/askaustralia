@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ASKAUSTRALIA.AI — Just Ask</title>
+  <meta name="description" content="Your Australia AI travel guide. Restaurants, hotels, car rentals and live directions — instant local answers, without the noise. Premium domain available for acquisition." />
+
+  <!-- Canonical + social sharing cards (the link preview IS the pitch when
+       the domain is shared with a prospective buyer) -->
+  <link rel="canonical" href="https://askaustralia.ai/" />
+  <meta name="theme-color" content="#FAF5EC" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://askaustralia.ai/" />
+  <meta property="og:site_name" content="ASKAUSTRALIA.AI" />
+  <meta property="og:title" content="ASKAUSTRALIA.AI — Just Ask" />
+  <meta property="og:description" content="Your Australia AI travel guide. Instant local answers, without the noise. Premium domain available for acquisition." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ASKAUSTRALIA.AI — Just Ask" />
+  <meta name="twitter:description" content="Your Australia AI travel guide. Instant local answers, without the noise. Premium domain available for acquisition." />
+
+  <!-- Favicon: the paper diamond brand mark on Uluru ochre, inline (no asset files) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23A6431F'/%3E%3Crect x='21' y='21' width='22' height='22' rx='3' fill='%23FAF5EC' transform='rotate(45 32 32)'/%3E%3C/svg%3E" />
+
+  <!-- Structured data: tells search engines the domain itself is on offer -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ASKAUSTRALIA.AI",
+    "url": "https://askaustralia.ai/",
+    "description": "Australia AI concierge — premium domain available for acquisition."
+  }
+  </script>
+
+  <!-- Google Fonts: Young Serif (warm, earthen display serif) + Figtree (UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       Design tokens — 'Red Centre'
+       desert-sand paper, deep earth-brown ink, Uluru ochre accents,
+       eucalypt green strictly reserved for the two conversion points
+       (Send + acquisition pill)
+       ============================================================ */
+    :root {
+      --paper: #FAF5EC;        /* warm desert-sand off-white base */
+      --ink: #2B1D14;          /* deep earth brown — body text */
+      --ochre: #A6431F;        /* primary Uluru ochre / rust */
+      --ochre-deep: #7E3014;   /* tonal stop for hovers / gradients */
+      --eucalypt: #1F5C45;     /* deep eucalypt green — CTAs ONLY */
+      --mist: #F0E7D9;         /* soft sandstone — surfaces / dividers */
+
+      /* derived tints — same families, alpha only */
+      --ink-70: rgba(43,29,20,0.72);
+      --ink-55: rgba(43,29,20,0.56);
+      --ink-40: rgba(43,29,20,0.42);
+      --ink-line: rgba(43,29,20,0.14);
+      --ochre-line: rgba(166,67,31,0.32);
+      --ochre-tint: rgba(166,67,31,0.10);
+
+      /* desert-sand field with two faint ochre washes drifting in from the corners */
+      --hero-bg:
+        radial-gradient(110% 80% at 86% -12%, rgba(166,67,31,0.08), transparent 58%),
+        radial-gradient(90% 70% at -8% 104%, rgba(166,67,31,0.06), transparent 55%),
+        linear-gradient(180deg, #FAF5EC 0%, #F5ECDC 100%);
+
+      --diamond-grad: linear-gradient(135deg, #C96A3C, #7E3014);
+      --wordmark-grad: linear-gradient(180deg, #6B3A22, #2B1D14);
+      /* the two eucalypt-green moments */
+      --send-grad: linear-gradient(160deg, #2A6E54, #174A37);
+      --send-grad-hover: linear-gradient(160deg, #348063, #1F5C45);
+
+      --font-display: "Young Serif", Georgia, serif;
+      --font-ui: "Figtree", system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--paper); }
+    ::selection { background: rgba(166,67,31,0.20); }
+    input::placeholder { color: rgba(43,29,20,0.38); }
+
+    @keyframes auLivePulse {
+      0%   { box-shadow: 0 0 0 0 rgba(166,67,31,0.45); }
+      70%  { box-shadow: 0 0 0 7px rgba(166,67,31,0); }
+      100% { box-shadow: 0 0 0 0 rgba(166,67,31,0); }
+    }
+    /* 'Living' logo — gentle breathing shimmer on the brand mark */
+    @keyframes auMarkShimmer {
+      0%, 100% { box-shadow: inset 0 0 10px rgba(166,67,31,0.14), 0 0 0 0 rgba(166,67,31,0); }
+      50%      { box-shadow: inset 0 0 14px rgba(166,67,31,0.28), 0 0 12px 1px rgba(166,67,31,0.18); }
+    }
+    @keyframes auDiamondPulse {
+      0%, 100% { transform: rotate(45deg) scale(1);    filter: brightness(1); }
+      50%      { transform: rotate(45deg) scale(1.12); filter: brightness(1.15); }
+    }
+    /* Send button comes alive when the input holds text */
+    @keyframes auSendGlow {
+      0%, 100% { box-shadow: 0 8px 18px -8px rgba(31,92,69,0.55), 0 0 0 0 rgba(31,92,69,0); }
+      50%      { box-shadow: 0 8px 22px -6px rgba(31,92,69,0.65), 0 0 16px 0 rgba(31,92,69,0.28); }
+    }
+    /* a tiny spark sweeps across on click */
+    @keyframes auSendSpark {
+      0%   { transform: translateX(-130%) skewX(-18deg); opacity: 0; }
+      18%  { opacity: 0.9; }
+      100% { transform: translateX(240%) skewX(-18deg); opacity: 0; }
+    }
+    /* staged entrance — the page 'settles in' like a curtain rising */
+    @keyframes auRise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    /* scripted demo: typing dots while the bot 'thinks' */
+    @keyframes auTypingDot {
+      0%, 60%, 100% { opacity: 0.25; transform: translateY(0); }
+      30%           { opacity: 1;    transform: translateY(-3px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .mark, .mark .diamond, .send-btn, .availability .dot, .chat-status .live, .clock-meta .dot { animation: none !important; }
+      .acquire, .topbar, .hero-left, .hero-right, .closing, .foot, .cta-pill, .studio-mark { animation: none !important; }
+      .send-btn::after { display: none; }
+      .deco-weave { transition: none !important; }
+      .bubble.typing .tdot { animation: none !important; }
+      .bubble .w { transition: none !important; opacity: 1 !important; }
+    }
+
+    /* keyboard focus — clear ochre ring, never the UA default */
+    :focus-visible {
+      outline: 2px solid var(--ochre);
+      outline-offset: 2px;
+    }
+    .input-row:focus-within {
+      border-color: var(--ochre);
+      box-shadow: 0 0 0 3px rgba(166,67,31,0.16);
+    }
+    .input-row input:focus-visible { outline: none; } /* the row carries the focus ring */
+
+    /* ============================================================
+       Hero section
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      padding: clamp(26px, 4.5vw, 60px);
+      font-family: var(--font-ui);
+      color: var(--ink);
+      background: var(--hero-bg);
+    }
+
+    /* ambient decoration */
+    .deco { position: absolute; pointer-events: none; }
+    /* 'Red Centre View' — the one signature element: thin ochre line-art,
+       Uluru rising over desert ripples with a low sun faint behind.
+       Static (no animation) so it stays light on older machines. */
+    .deco-uluru {
+      left: -34px; bottom: -6px;
+      width: min(52vw, 660px);
+      color: var(--ochre);
+      opacity: 0.85;
+    }
+    .deco-uluru svg { display: block; width: 100%; height: auto; }
+    /* Adaptive theme layer: transparent by default (the Red Centre view is
+       the signature); a query can dissolve a faint pattern in. */
+    .deco-weave {
+      inset: 0;
+      opacity: 0;
+      transition: opacity .55s ease;
+    }
+    /* 'outback' (Uluru, desert, Alice) → scattered spinifex-seed dots. */
+    .hero.theme-outback .deco-weave {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Cg fill='%23A6431F'%3E%3Ccircle cx='6' cy='6' r='1.6'/%3E%3Ccircle cx='24' cy='14' r='1.6'/%3E%3Ccircle cx='12' cy='28' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 36px 36px;
+      opacity: 0.05;
+    }
+    /* 'reef' (Cairns, coral, diving) → overlapping coral scallops. */
+    .hero.theme-reef .deco-weave {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='24' viewBox='0 0 32 24'%3E%3Cg fill='none' stroke='%23A6431F' stroke-width='1'%3E%3Cpath d='M0 10 Q8 0 16 10 T32 10'/%3E%3Cpath d='M-8 20 Q0 10 8 20 T24 20 T40 20'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 32px 24px;
+      opacity: 0.05;
+    }
+    /* 'coast' (beaches, surf, Byron) → rolling swell lines. */
+    .hero.theme-coast .deco-weave {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='24' viewBox='0 0 64 24'%3E%3Cg fill='none' stroke='%23A6431F' stroke-width='1'%3E%3Cpath d='M0 8 Q16 0 32 8 T64 8'/%3E%3Cpath d='M0 18 Q16 10 32 18 T64 18'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 64px 24px;
+      opacity: 0.05;
+    }
+    /* mid-dissolve: weave fades out before the pattern swaps in */
+    .hero.weave-shift .deco-weave { opacity: 0 !important; }
+
+    .inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1340px;
+      margin: 0 auto;
+      min-height: calc(100vh - clamp(52px, 9vw, 120px));
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- acquisition notice — the page's commercial purpose. One of the
+       two eucalypt-green moments: quiet outline at rest, fills on hover ---- */
+    .acquire {
+      align-self: center; max-width: 100%;
+      display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      text-align: center; gap: 10px;
+      margin-bottom: clamp(16px, 2.5vw, 26px);
+      padding: 8px 18px; border-radius: 999px;
+      border: 1px solid rgba(31,92,69,0.42);
+      background: #fff;
+      color: var(--eucalypt); text-decoration: none;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+      transition: border-color .18s ease, color .18s ease, background .18s ease, box-shadow .2s ease;
+    }
+    .acquire .diamond { width: 7px; height: 7px; border-radius: 1px; background: var(--eucalypt); flex: 0 0 auto; }
+    .acquire .enquire { white-space: nowrap; } /* keep 'Enquire →' on one line when the pill wraps */
+    .acquire .arrow { color: inherit; letter-spacing: 0; }
+    .acquire:hover {
+      background: var(--eucalypt); border-color: var(--eucalypt); color: #fff;
+      box-shadow: 0 12px 26px -14px rgba(31,92,69,0.65);
+    }
+    .acquire:hover .diamond { background: #fff; }
+
+    /* staged entrance order: notice → topbar → title → chat → closing → footer → CTA */
+    .acquire, .topbar, .hero-left, .hero-right, .closing, .foot, .cta-pill, .studio-mark {
+      animation: auRise .7s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .studio-mark { animation-delay: .66s; }
+    .topbar     { animation-delay: .08s; }
+    .hero-left  { animation-delay: .18s; }
+    .hero-right { animation-delay: .32s; }
+    .closing    { animation-delay: .46s; }
+    .foot       { animation-delay: .56s; }
+    .cta-pill   { animation-delay: .66s; }
+
+    /* ---- top bar ---- */
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 18px; flex-wrap: wrap;
+    }
+    .brand { display: flex; align-items: center; gap: 13px; }
+    .mark {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid var(--ochre-line);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: inset 0 0 10px rgba(166,67,31,0.14);
+      animation: auMarkShimmer 4.5s ease-in-out infinite;
+    }
+    .diamond {
+      transform: rotate(45deg); border-radius: 2px;
+      background: var(--diamond-grad);
+    }
+    .mark .diamond {
+      width: 11px; height: 11px;
+      animation: auDiamondPulse 4.5s ease-in-out infinite;
+    }
+    /* ASKAUSTRALIA is 12 characters (same as ASKSINGAPORE) — Singapore's
+       20px / 0.3em treatment keeps the long wordmark composed */
+    .wordmark {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 20px; letter-spacing: 0.3em; padding-left: 0.3em;
+    }
+    .wordmark .name {
+      background: var(--wordmark-grad);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .wordmark .tld { color: var(--ochre); }
+    /* ---- live Australia clock: editorial dual-zone lockup — the continent
+       spans three time zones, so Sydney (east) and Perth (west) bracket it ---- */
+    .availability { display: flex; align-items: center; }
+    .clock { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; line-height: 1; }
+    .clock-date {
+      /* light grotesque in ochre — ties the lockup to the accent */
+      font-family: var(--font-ui); font-weight: 500;
+      font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+      font-variant-numeric: tabular-nums;
+      color: var(--ochre);
+    }
+    .clock-zones { display: flex; align-items: stretch; gap: 14px; }
+    .zone { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+    .zone-hair { /* thin vertical rule between the two zones */
+      width: 1px; align-self: stretch; margin-top: 2px;
+      background: rgba(166,67,31,0.40);
+    }
+    .clock-time {
+      /* airy, light grotesque numerals — reads like a luxury timepiece */
+      font-family: var(--font-ui); font-weight: 300;
+      font-size: 27px; letter-spacing: 0.04em;
+      font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1;
+      color: var(--ink);
+    }
+    .clock-time .cc { /* dimmed colon, watch-style */
+      color: rgba(43,29,20,0.30); font-weight: 300; margin: 0 0.04em;
+    }
+    .zone-label {
+      font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-40);
+    }
+    /* AEST/AEDT and AWST derived live from the formatter — never hardcoded */
+    .zone-label .tz { color: var(--ochre); }
+    .clock-meta {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 9.5px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--ink-40);
+    }
+    .clock-meta .dot {
+      width: 5px; height: 5px; border-radius: 50%; background: var(--ochre);
+      animation: auLivePulse 2.4s ease-out infinite;
+    }
+    /* local weather line — mockup placeholder, wired to live data later */
+    .clock-weather {
+      display: flex; align-items: center; gap: 8px; margin-top: 1px;
+      font-family: var(--font-ui); font-size: 9.5px; font-weight: 600;
+      letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--ink-40);
+    }
+    .clock-weather .temp { color: var(--ink-55); letter-spacing: 0.12em; }
+    .clock-weather .sep { width: 3px; height: 3px; border-radius: 50%; background: rgba(166,67,31,0.45); }
+
+    /* ---- main ---- */
+    .main {
+      flex: 1;
+      display: flex; flex-direction: column; justify-content: center;
+      gap: clamp(38px, 5vw, 54px);
+      padding: clamp(28px, 5vw, 48px) 0;
+    }
+
+    /* hero row: title (left) + chat (right) — non-wrapping */
+    .hero-row {
+      display: flex; flex-wrap: nowrap;
+      align-items: center; justify-content: center;
+      gap: clamp(24px, 3.5vw, 56px);
+    }
+
+    /* left column */
+    .hero-left { flex: 1 1 0; min-width: 0; max-width: 560px; }
+    .eyebrow {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--ochre); margin-bottom: 22px; padding-left: 0.4em;
+    }
+    .display {
+      margin: 0;
+      font-family: var(--font-display); font-weight: 400;
+      line-height: 0.9; letter-spacing: -0.01em;
+      font-size: clamp(84px, 13.5vw, 176px);
+      color: var(--ink);
+    }
+    /* the editorial gesture: 'Ask' carries the Uluru ochre — colour, not slant */
+    .display .accent { color: var(--ochre); }
+
+    /* effortless card — the USP subtitle directly under the title.
+       Width hugs the copy (fit-content) so the panel never looks oversized
+       relative to its text. */
+    .effortless {
+      width: fit-content; max-width: 100%;
+      padding: 16px 22px; border-radius: 15px;
+      border: 1px solid var(--mist);
+      background: #fff;
+      box-shadow: 0 20px 44px -30px rgba(43,29,20,0.30), 0 2px 8px -5px rgba(43,29,20,0.10);
+      text-align: left;
+    }
+    /* direct subtitle: ties the action (Just Ask) to the ease (No app…) */
+    .hero-left .effortless { margin-top: 24px; }
+    .effortless .label-row { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
+    .effortless .pip { width: 5px; height: 5px; border-radius: 50%; background: var(--ochre); }
+    .effortless .label { font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); }
+    .effortless .sub { font-size: 17px; font-weight: 500; color: var(--ink); }
+
+    /* ---- chat window (right) ---- */
+    .hero-right { flex: 0 1 414px; min-width: 270px; width: 100%; max-width: 421px; }
+    .chat-frame {
+      position: relative; border-radius: 28px; padding: 1px;
+      background: linear-gradient(155deg, rgba(166,67,31,0.38), rgba(166,67,31,0.10) 40%, rgba(166,67,31,0.26));
+      /* elevation: soft ink shadow with wide blur lifts the card so it
+         'floats' just above the paper */
+      box-shadow:
+        0 44px 90px -46px rgba(43,29,20,0.42),
+        0 18px 44px -30px rgba(43,29,20,0.22);
+    }
+    .chat {
+      border-radius: 27px; padding: 24px 24px 22px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .chat-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .chat-status { display: flex; align-items: center; gap: 10px; }
+    .chat-status .live {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--ochre);
+      animation: auLivePulse 2.4s ease-out infinite;
+    }
+    .chat-status .label {
+      font-size: 11.5px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ink-70); font-weight: 600;
+    }
+    .chat-actions { display: flex; align-items: center; gap: 8px; }
+    .icon-btn {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 1px solid var(--ink-line); background: transparent;
+      color: var(--ink-55); font-size: 15px; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .18s ease, color .18s ease;
+    }
+    .icon-btn:hover { border-color: var(--ochre); color: var(--ink); }
+    .icon-btn .diamond { width: 8px; height: 8px; border-radius: 1px; }
+
+    .chat-intro { margin-top: 20px; }
+    .chat-title {
+      font-family: var(--font-display); font-size: 23px; font-weight: 400;
+      line-height: 1.25; color: var(--ink);
+    }
+    .bullets { margin-top: 16px; display: flex; flex-direction: column; gap: 9px; font-size: 14px; color: var(--ink-55); }
+    .bullet { display: flex; align-items: center; gap: 11px; }
+    .bullet .ico {
+      width: 22px; height: 22px; flex: 0 0 auto; border-radius: 50%;
+      border: 1px solid rgba(166,67,31,0.35);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .bullet .ico .pip { width: 5px; height: 5px; border-radius: 50%; background: var(--ochre); }
+
+    .divider { height: 1px; margin: 20px 0; background: linear-gradient(90deg, transparent, rgba(166,67,31,0.30), transparent); }
+
+    .bubble-row { display: flex; gap: 11px; align-items: flex-start; }
+    .bubble-av {
+      width: 28px; height: 28px; flex: 0 0 auto; border-radius: 50%;
+      border: 1px solid var(--ochre-line);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: inset 0 0 8px rgba(166,67,31,0.12);
+    }
+    .bubble-av .diamond { width: 9px; height: 9px; border-radius: 2px; }
+    .bubble {
+      background: var(--mist);
+      border: 1px solid rgba(43,29,20,0.05);
+      border-radius: 4px 16px 16px 16px; padding: 13px 16px;
+      font-size: 14.5px; line-height: 1.5; color: var(--ink);
+    }
+
+    /* conversation log — the scripted demo appends bubbles here.
+       Nested scroll keeps the card (and page layout) stable as the
+       exchange grows. */
+    .chat-log {
+      display: flex; flex-direction: column; gap: 12px;
+      max-height: 300px; overflow-y: auto;
+      overscroll-behavior: contain;
+      padding-right: 4px;
+      scrollbar-width: thin; scrollbar-color: rgba(166,67,31,0.30) transparent;
+    }
+    .chat-log::-webkit-scrollbar { width: 5px; }
+    .chat-log::-webkit-scrollbar-thumb { background: rgba(166,67,31,0.25); border-radius: 999px; }
+    .bubble-row.user { justify-content: flex-end; }
+    .bubble-row.user .bubble {
+      background: #E6D9C4; /* one step deeper into the sandstone family */
+      border-radius: 16px 4px 16px 16px;
+      max-width: 85%;
+    }
+    /* typing indicator — three ochre dots breathing */
+    .bubble.typing { display: inline-flex; align-items: center; gap: 5px; padding: 15px 16px; }
+    .bubble.typing .tdot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--ochre);
+      animation: auTypingDot 1s ease-in-out infinite;
+    }
+    .bubble.typing .tdot:nth-child(2) { animation-delay: .15s; }
+    .bubble.typing .tdot:nth-child(3) { animation-delay: .3s; }
+    /* word-by-word reveal — plain opacity transition, cheap on old machines */
+    .bubble .w { opacity: 0; transition: opacity .18s ease; }
+    .bubble .w.in { opacity: 1; }
+
+    .categories { margin-top: 18px; }
+    /* one tidy row, evenly distributed like a segmented control;
+       wraps gracefully only if the chat gets genuinely narrow */
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .chip {
+      cursor: pointer;
+      flex: 1 1 auto; text-align: center; white-space: nowrap;
+      border: 1px solid var(--ink-line);
+      background: #fff;
+      color: var(--ink-70);
+      font-family: var(--font-ui); font-size: 12px; font-weight: 500; letter-spacing: 0.01em;
+      padding: 8px 10px; border-radius: 999px;
+      /* raised, physically pressable */
+      box-shadow: 0 2px 5px -2px rgba(43,29,20,0.20), inset 0 1px 0 #fff;
+      transition: transform .16s ease, box-shadow .16s ease,
+                  background .18s ease, border-color .18s ease, color .18s ease;
+    }
+    .chip:hover {
+      border-color: var(--ochre);
+      background: var(--ochre-tint);
+      color: var(--ochre-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -10px rgba(43,29,20,0.30);
+    }
+    .chip:active {
+      transform: translateY(0);
+      box-shadow: inset 0 2px 5px rgba(43,29,20,0.16);
+    }
+    .caption { margin-top: 11px; font-size: 11px; letter-spacing: 0.04em; color: var(--ink-40); font-weight: 700; }
+    .caption a {
+      color: var(--ochre); font-weight: 700; text-decoration: none;
+      transition: color .18s ease;
+    }
+    .caption a:hover { color: var(--ochre-deep); text-decoration: underline; text-underline-offset: 3px; }
+
+    .input-row {
+      margin-top: 18px; display: flex; align-items: center; gap: 8px;
+      padding: 7px 7px 7px 18px; border-radius: 999px;
+      border: 1px solid var(--ink-line); background: #fff;
+      transition: border-color .18s ease, box-shadow .2s ease;
+    }
+    .input-row input {
+      flex: 1; min-width: 0; background: transparent; border: none; outline: none;
+      color: var(--ink); font-family: var(--font-ui); font-size: 14.5px;
+    }
+    /* the other eucalypt-green moment: Send */
+    .send-btn {
+      position: relative; overflow: hidden;
+      flex: 0 0 auto; cursor: pointer; border: none;
+      padding: 11px 22px; border-radius: 999px;
+      font-family: var(--font-ui); font-weight: 600; font-size: 13.5px; letter-spacing: 0.02em;
+      color: #fff; background: var(--send-grad);
+      box-shadow: 0 8px 18px -8px rgba(31,92,69,0.55);
+      transition: background .18s ease, transform .1s ease, box-shadow .2s ease;
+    }
+    .send-btn:hover { background: var(--send-grad-hover); }
+    /* glowing while there is something to send */
+    .send-btn.is-ready { animation: auSendGlow 2.2s ease-in-out infinite; }
+    /* physical press-and-release */
+    .send-btn:active { transform: scale(0.95); }
+    /* spark sweep, toggled by JS on click */
+    .send-btn::after {
+      content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 45%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.75), transparent);
+      transform: translateX(-130%) skewX(-18deg); opacity: 0; pointer-events: none;
+    }
+    .send-btn.spark::after { animation: auSendSpark .6s ease-out; }
+
+    /* ---- below: subhead, panel, tagline ---- */
+    .closing { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+    .closing .guide {
+      margin: 0; font-family: var(--font-display); font-style: italic; font-weight: 400;
+      font-size: clamp(21px, 2.6vw, 30px); color: var(--ink);
+    }
+    .closing .lede {
+      margin: 14px auto 0; max-width: 520px; font-size: 15.5px; line-height: 1.65;
+      color: var(--ink-55);
+    }
+    .closing .tagline {
+      margin: 0; max-width: 560px; font-family: var(--font-display); font-style: italic;
+      font-size: 18px; color: var(--ink-55);
+    }
+
+    /* ---- footer: sister-domain links ---- */
+    .foot {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      padding: clamp(24px, 4vw, 38px) 0 8px;
+    }
+    .foot .hairline {
+      width: 54px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(166,67,31,0.5), transparent);
+    }
+    .foot-text {
+      margin: 0; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-55); text-align: center;
+    }
+    .foot-text a {
+      color: var(--ochre); text-decoration: none;
+      transition: color .18s ease;
+    }
+    .foot-text a:hover { color: var(--ochre-deep); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ---- studio attribution — anchors the desert corner; part of the
+       brand network story (Noustelos → asksantorini.ai → asksingapore.ai →
+       asksydney.ai → here) ---- */
+    .studio-mark {
+      position: absolute;
+      left: clamp(20px, 4vw, 46px); bottom: clamp(20px, 4vw, 40px); z-index: 3;
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: 12.5px; font-weight: 600;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--ink-55); text-decoration: none;
+      transition: color .18s ease;
+    }
+    .studio-mark .diamond { width: 6px; height: 6px; border-radius: 1px; flex: 0 0 auto; }
+    .studio-mark .studio { color: var(--ochre); transition: color .18s ease; }
+    .studio-mark:hover { color: var(--ink); }
+    .studio-mark:hover .studio { color: var(--ochre-deep); }
+
+    /* ---- floating pill ---- */
+    .cta-pill {
+      position: absolute;
+      right: clamp(20px, 4vw, 46px); bottom: clamp(20px, 4vw, 40px); z-index: 3;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 11px 20px 11px 14px; border-radius: 999px;
+      border: 1px solid var(--ink-line);
+      background: #fff;
+      box-shadow: 0 18px 40px -20px rgba(43,29,20,0.35);
+      color: var(--ink); font: inherit; cursor: pointer;
+      transition: transform .16s ease, border-color .18s ease, box-shadow .2s ease;
+    }
+    .cta-pill:hover {
+      transform: translateY(-2px); border-color: var(--ochre-line);
+      box-shadow: 0 24px 48px -22px rgba(43,29,20,0.40);
+    }
+    .cta-pill .ring {
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 1px solid var(--ochre-line);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cta-pill .ring .diamond { width: 9px; height: 9px; border-radius: 2px; }
+    .cta-pill .text { font-size: 13px; font-weight: 500; }
+
+    /* ---- responsive fallback (the design is non-wrapping; stack only when truly narrow) ---- */
+    @media (max-width: 760px) {
+      /* the tracked caps lines are too wide for narrow screens — relax them */
+      .acquire { letter-spacing: 0.12em; font-size: 10.5px; padding: 7px 14px; }
+      .wordmark { font-size: 15px; letter-spacing: 0.16em; padding-left: 0.16em; }
+      .hero-row { flex-wrap: wrap; }
+      .hero-left, .hero-right { flex: 1 1 100%; max-width: 100%; }
+      .hero-left .effortless { margin-left: auto; margin-right: auto; }
+      /* chips wrap to a 2×2 grid when the chat is full-width */
+      .chips { flex-wrap: wrap; }
+      .chip { flex: 1 1 calc(50% - 4px); }
+      /* the Red Centre view recedes so stacked text stays quiet over it */
+      .deco-uluru { width: 80vw; opacity: 0.45; }
+      /* the dual-zone lockup tightens a touch */
+      .clock-time { font-size: 23px; }
+      /* attribution joins the flow under the footer instead of floating
+         over it on narrow screens */
+      /* bottom margin keeps it clear of the floating CTA pill's zone */
+      .studio-mark { position: static; display: flex; width: fit-content; margin: 6px auto 58px; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero" data-screen-label="Hero">
+
+    <!-- ambient decoration -->
+    <!-- signature: 'Red Centre View' line-art — Uluru with its runoff
+         striations, a low desert sun faint behind, ripples and spinifex
+         beneath, evening stars above (static SVG, no assets) -->
+    <div class="deco deco-uluru" aria-hidden="true">
+      <svg viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+          <!-- low desert sun, far behind the rock -->
+          <g stroke-opacity="0.14">
+            <circle cx="470" cy="150" r="56"/>
+          </g>
+          <circle cx="470" cy="150" r="80" stroke-opacity="0.08"/>
+          <!-- Uluru — main silhouette -->
+          <g stroke-opacity="0.42">
+            <path d="M56 330 C84 260 132 219 205 205 C290 189 372 191 440 207 C502 222 536 272 558 330"/>
+          </g>
+          <!-- summit undulation -->
+          <path d="M150 231 C205 214 265 207 325 207" stroke-opacity="0.16"/>
+          <!-- runoff striations down the face — Uluru's signature texture -->
+          <g stroke-opacity="0.24">
+            <path d="M142 235 C152 267 160 299 164 330"/>
+            <path d="M198 213 C206 251 212 291 216 330"/>
+            <path d="M258 201 C262 243 266 287 268 330"/>
+            <path d="M322 197 C324 241 326 285 326 330"/>
+            <path d="M386 200 C384 242 382 286 381 330"/>
+            <path d="M446 211 C440 251 435 291 433 330"/>
+            <path d="M498 231 C488 263 480 297 476 330"/>
+          </g>
+          <g stroke-opacity="0.12">
+            <path d="M170 223 C178 258 184 295 188 330"/>
+            <path d="M228 206 C234 247 238 289 241 330"/>
+            <path d="M290 199 C293 242 296 286 297 330"/>
+            <path d="M354 198 C355 241 355 286 354 330"/>
+            <path d="M416 204 C412 245 409 288 407 330"/>
+            <path d="M472 220 C464 255 458 293 455 330"/>
+          </g>
+          <!-- ground line -->
+          <path d="M20 330 L620 330" stroke-opacity="0.20"/>
+          <!-- desert ripples -->
+          <g stroke-opacity="0.14">
+            <path d="M40 356 Q100 348 160 356 T280 356 T400 356 T520 356"/>
+            <path d="M100 380 Q160 372 220 380 T340 380 T460 380"/>
+            <path d="M60 404 Q120 396 180 404 T300 404 T420 404 T540 404"/>
+          </g>
+        </g>
+        <!-- spinifex seeds along the ripples, evening stars above -->
+        <g fill="currentColor" fill-opacity="0.45">
+          <circle cx="86" cy="352" r="1.8"/><circle cx="300" cy="360" r="1.8"/><circle cx="470" cy="352" r="1.8"/>
+          <circle cx="180" cy="384" r="1.8"/><circle cx="400" cy="386" r="1.8"/>
+          <circle cx="90" cy="120" r="2.2"/><circle cx="152" cy="78" r="1.8"/><circle cx="242" cy="126" r="2"/>
+          <circle cx="560" cy="88" r="2.2"/><circle cx="602" cy="150" r="1.8"/>
+        </g>
+      </svg>
+    </div>
+    <div class="deco deco-weave" aria-hidden="true"></div>
+
+    <div class="inner">
+
+      <!-- ===================== ACQUISITION NOTICE ===================== -->
+      <!-- mailto only — no forms, no network logic (design-only stays intact) -->
+      <!-- contact: info@asksantorini.ai for now — switch to info@askaustralia.ai once that mailbox is live -->
+      <a class="acquire" href="mailto:info@asksantorini.ai?subject=Acquisition%20enquiry%20%E2%80%94%20askaustralia.ai">
+        <span class="diamond" aria-hidden="true"></span>
+        Premium domain available for acquisition
+        <span class="enquire">· Enquire <span class="arrow" aria-hidden="true">→</span></span>
+      </a>
+
+      <!-- ===================== TOP BAR ===================== -->
+      <header class="topbar">
+        <div class="brand">
+          <span class="mark" aria-hidden="true"><span class="diamond"></span></span>
+          <div class="wordmark"><span class="name">ASKAUSTRALIA</span><span class="tld">.AI</span></div>
+        </div>
+        <div class="availability" aria-label="Australia time, Sydney and Perth — 24/7 coast-to-coast availability">
+          <div class="clock">
+            <span class="clock-date" id="aus-date">—</span>
+            <!-- Australia spans three time zones — Sydney (east) and Perth
+                 (west) bracket the continent honestly -->
+            <div class="clock-zones">
+              <div class="zone">
+                <span class="clock-time" id="syd-clock">--<span class="cc">:</span>--</span>
+                <!-- AEST/AEDT derived live from the formatter — Sydney observes DST -->
+                <span class="zone-label"><span class="tz" id="syd-tz">SYD</span> · Sydney</span>
+              </div>
+              <span class="zone-hair" aria-hidden="true"></span>
+              <div class="zone">
+                <span class="clock-time" id="per-clock">--<span class="cc">:</span>--</span>
+                <span class="zone-label"><span class="tz" id="per-tz">PER</span> · Perth</span>
+              </div>
+            </div>
+            <span class="clock-meta">
+              <span class="dot" aria-hidden="true"></span>
+              24/7 Coast-to-Coast Availability
+            </span>
+            <!-- TODO: wire to backend stub — replace with live weather -->
+            <span class="clock-weather">
+              <span class="temp" id="aus-temp">16°C</span>
+              <span class="sep" aria-hidden="true"></span>
+              Clear Skies
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===================== MAIN ===================== -->
+      <div class="main">
+
+        <!-- hero row: title + chat -->
+        <div class="hero-row">
+
+          <!-- LEFT -->
+          <div class="hero-left">
+            <div class="eyebrow">Australia · AI Concierge</div>
+            <h1 class="display">Just<br /><span class="accent">Ask</span></h1>
+            <div class="effortless">
+              <div class="label-row"><span class="pip"></span><span class="label">Effortless</span></div>
+              <div class="sub">No app. No sign-up. Just answers.</div>
+            </div>
+          </div>
+
+          <!-- RIGHT: chat window -->
+          <div class="hero-right">
+            <div class="chat-frame">
+              <div class="chat">
+
+                <!-- header -->
+                <div class="chat-header">
+                  <div class="chat-status">
+                    <span class="live" aria-hidden="true"></span>
+                    <span class="label">Live Demo · Ask Australia AI</span>
+                  </div>
+                  <div class="chat-actions">
+                    <button class="icon-btn" aria-label="Refresh conversation">⟳</button>
+                    <button class="icon-btn" aria-label="More options"><span class="diamond"></span></button>
+                  </div>
+                </div>
+
+                <!-- intro -->
+                <div class="chat-intro">
+                  <div class="chat-title">AI Australia Concierge.<br />Instant local answers, without the noise.</div>
+                  <div class="bullets">
+                    <div class="bullet"><span class="ico"><span class="pip"></span></span>Start with your area,</div>
+                    <div class="bullet"><span class="ico"><span class="pip"></span></span>your mood,</div>
+                    <div class="bullet"><span class="ico"><span class="pip"></span></span>or what you need right now.</div>
+                  </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- conversation log: the scripted demo appends bubbles here;
+                     the greeting is the first bot message -->
+                <div class="chat-log" id="chat-log">
+                  <div class="bubble-row">
+                    <span class="bubble-av" aria-hidden="true"><span class="diamond"></span></span>
+                    <div class="bubble">G'day! I'm your local Australia AI. Ask me anything.</div>
+                  </div>
+                </div>
+
+                <!-- category chips -->
+                <div class="categories">
+                  <div class="chips">
+                    <button class="chip" data-prefill="Where should I eat tonight in Melbourne?">Restaurants</button>
+                    <button class="chip" data-prefill="Find me a boutique hotel in Byron Bay.">Hotels</button>
+                    <button class="chip" data-prefill="Rent a campervan for the Great Ocean Road.">Car rental</button>
+                    <button class="chip" data-prefill="How do I get to Uluru?">Directions</button>
+                  </div>
+                  <div class="caption">This chat is a demo with scripted answers — see our live AI concierge at <a href="https://asksantorini.ai" target="_blank" rel="noopener noreferrer">AskSantorini.ai</a>.</div>
+                </div>
+
+                <!-- input -->
+                <div class="input-row">
+                  <!-- TODO: wire to backend stub — chat/AI/network logic connected separately later -->
+                  <input id="ask-input" type="text" placeholder="Where to eat tonight?" autocomplete="off" />
+                  <button id="ask-send" class="send-btn">Send</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /hero row -->
+
+        <!-- below: subhead, panel, tagline -->
+        <div class="closing">
+          <div>
+            <p class="guide">your Australia AI travel guide.</p>
+            <p class="lede">Restaurants, hotels, car rentals and live directions — instant local answers, without the noise.</p>
+          </div>
+          <p class="tagline">Your AI concierge, made for Australia, in your pocket — ready any time, any day.</p>
+        </div>
+
+        <!-- footer: sister concierges -->
+        <footer class="foot">
+          <span class="hairline" aria-hidden="true"></span>
+          <p class="foot-text">Sister concierges · <a href="https://asksantorini.ai" target="_blank" rel="noopener">asksantorini.ai</a> · <a href="https://asksingapore.ai" target="_blank" rel="noopener">asksingapore.ai</a> · <a href="https://asksydney.ai" target="_blank" rel="noopener">asksydney.ai</a></p>
+        </footer>
+
+      </div>
+    </div>
+
+    <!-- studio attribution, bottom-left over the Red Centre view -->
+    <a class="studio-mark" href="https://noustelos.gr" target="_blank" rel="noopener">
+      <span class="diamond" aria-hidden="true"></span>
+      Noustelos <span class="studio">Studio</span>
+    </a>
+
+    <!-- ===================== FLOATING PILL ===================== -->
+    <!-- TODO: wire to backend stub — opens the concierge experience later -->
+    <button id="cta-ask" class="cta-pill">
+      <span class="ring" aria-hidden="true"><span class="diamond"></span></span>
+      <span class="text">Ask Australia AI</span>
+    </button>
+
+  </section>
+
+  <script>
+    // ============================================================
+    // SCRIPTED DEMO behaviour — all client-side, ZERO network.
+    // Four hardcoded Q→A pairs preview the concierge concept; any
+    // other input gets the fallback line. The real backend later
+    // replaces the SCRIPTED map + respond() — the hooks stay put.
+    // ============================================================
+    (function () {
+      var input = document.getElementById('ask-input');
+      var send  = document.getElementById('ask-send');
+      var hero  = document.querySelector('.hero');
+
+      // --- Live dual-zone clock + date — computed locally, no network ---
+      // Australia spans three time zones; Sydney (east) and Perth (west)
+      // bracket the continent. Sydney observes DST (AEST/AEDT), Perth does
+      // not (AWST) — both zone labels are derived from the formatter each
+      // tick rather than hardcoded.
+      var sydClock = document.getElementById('syd-clock');
+      var perClock = document.getElementById('per-clock');
+      var dateEl = document.getElementById('aus-date');
+      var sydTzEl = document.getElementById('syd-tz');
+      var perTzEl = document.getElementById('per-tz');
+      function zoneFmts(zone) {
+        return {
+          time: new Intl.DateTimeFormat('en-GB', { timeZone: zone, hour: '2-digit', minute: '2-digit', hour12: false }),
+          tz: new Intl.DateTimeFormat('en-AU', { timeZone: zone, timeZoneName: 'short', hour: '2-digit' })
+        };
+      }
+      var syd = zoneFmts('Australia/Sydney');
+      var per = zoneFmts('Australia/Perth');
+      var ausDateFmt = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Australia/Sydney', weekday: 'short', day: '2-digit', month: 'short', year: 'numeric'
+      });
+      function tickZone(now, fmts, clockEl, tzEl) {
+        if (clockEl) {
+          var hm = fmts.time.format(now).split(':'); // ["19","42"]
+          clockEl.innerHTML = hm[0] + '<span class="cc">:</span>' + hm[1];
+        }
+        if (tzEl) {
+          var parts = fmts.tz.formatToParts(now);
+          for (var i = 0; i < parts.length; i++) {
+            if (parts[i].type === 'timeZoneName') { tzEl.textContent = parts[i].value; break; } // "AEST"/"AEDT"/"AWST"
+          }
+        }
+      }
+      function tickClock() {
+        var now = new Date();
+        tickZone(now, syd, sydClock, sydTzEl);
+        tickZone(now, per, perClock, perTzEl);
+        if (dateEl) dateEl.textContent = ausDateFmt.format(now); // e.g. "Mon, 06 Jul 2026"
+      }
+      tickClock();
+      window.setInterval(tickClock, 15000);
+
+      // --- Send button: glow while there is something to send ---
+      function refreshSendState() {
+        send.classList.toggle('is-ready', input.value.trim().length > 0);
+      }
+
+      // --- Send button: replay the spark sweep on demand ---
+      function sparkSend() {
+        send.classList.remove('spark');
+        void send.offsetWidth; // force reflow so the animation can restart
+        send.classList.add('spark');
+      }
+      send.addEventListener('animationend', function (e) {
+        if (e.animationName === 'auSendSpark') send.classList.remove('spark');
+      });
+
+      // --- Scripted concierge: hardcoded Q→A map (no AI, no network) ---
+      var log = document.getElementById('chat-log');
+      var SCRIPTED = [
+        { q: "Where should I eat tonight in Melbourne?",
+          a: "Melbourne dinners are all about the laneways. For a big night, Gimlet at Cavendish House is glamorous European dining at its finest — book well ahead. Chin Chin on Flinders Lane brings punchy Thai flavours and a proper buzz; no bookings, but the queue moves fast. Or tram up to Carlton for handmade pasta at Tipo 00, a local institution. Want me to narrow it down by cuisine or budget?" },
+        { q: "Find me a boutique hotel in Byron Bay.",
+          a: "Byron does barefoot luxury better than anywhere. Raes on Wategos is the icon — a Mediterranean-style hideaway right on Wategos Beach, dreamy but pricey. The Bower, a few minutes from town, has a lush garden-cabana feel at a gentler rate, while 28 Degrees in the heart of Byron is an intimate adults-only guesthouse with just four suites. All are close to the lighthouse walk. Shall I check availability for your dates?" },
+        { q: "Rent a campervan for the Great Ocean Road.",
+          a: "Great call — allow at least three days from Melbourne to Port Fairy so you're not rushing the views. Britz and Jucy both have Melbourne depots with two-berth campervans from around $90 a day, and Camplify lets you rent locals' own vans if you want more character. Book campsites near the Twelve Apostles early — Princetown and Port Campbell fill fast. Would you like a compact two-berth, or something the whole family fits in?" },
+        { q: "How do I get to Uluru?",
+          a: "Easiest is to fly straight into Ayers Rock Airport at Yulara — direct flights run from Sydney, Melbourne and Brisbane, and the free resort shuttle meets every arrival. The classic road trip is flying to Alice Springs and driving 450 km down the sealed Lasseter Highway, about four and a half hours of proper outback. Either way you'll need a national-park pass — book it online before you go. Want me to time your visit around sunrise or sunset at the rock?" }
+      ];
+      var FALLBACK = "That's exactly the kind of question the full AskAustralia would answer live. This is a preview — try one of the suggestions above to see it in action, or reach out if you'd like the complete concierge for your own project.";
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var busy = false; // one exchange at a time
+
+      function normalize(s) { return s.trim().replace(/\s+/g, ' ').toLowerCase(); }
+      function answerFor(text) {
+        var q = normalize(text);
+        for (var i = 0; i < SCRIPTED.length; i++) if (normalize(SCRIPTED[i].q) === q) return SCRIPTED[i].a;
+        return FALLBACK;
+      }
+      function scrollLog(smooth) {
+        log.scrollTo({ top: log.scrollHeight, behavior: (smooth && !reduceMotion) ? 'smooth' : 'auto' });
+      }
+      function botRow() {
+        var row = document.createElement('div'); row.className = 'bubble-row';
+        var av = document.createElement('span'); av.className = 'bubble-av'; av.setAttribute('aria-hidden', 'true');
+        av.appendChild(Object.assign(document.createElement('span'), { className: 'diamond' }));
+        row.appendChild(av);
+        row.appendChild(Object.assign(document.createElement('div'), { className: 'bubble' }));
+        return row;
+      }
+      function addUserBubble(text) {
+        var row = document.createElement('div'); row.className = 'bubble-row user';
+        var bubble = document.createElement('div'); bubble.className = 'bubble';
+        bubble.textContent = text;
+        row.appendChild(bubble);
+        log.appendChild(row);
+        scrollLog(true);
+      }
+      // word-by-word reveal — the 'AI is writing' feel, kept cheap:
+      // one span per word, opacity-only transition. The streaming itself
+      // plays under reduced motion too — it's content presentation, not a
+      // motion trigger; the CSS guard swaps the fade for an instant pop
+      // and we tighten the pace a touch.
+      function revealAnswer(bubble, text, done) {
+        var words = text.split(' ');
+        var i = 0;
+        var timer = window.setInterval(function () {
+          var span = document.createElement('span'); span.className = 'w';
+          span.textContent = (i ? ' ' : '') + words[i];
+          bubble.appendChild(span);
+          void span.offsetWidth; // flush so the fade-in transition runs
+          span.classList.add('in');
+          log.scrollTop = log.scrollHeight; // keep the tail in view
+          if (++i >= words.length) { window.clearInterval(timer); done(); }
+        }, reduceMotion ? 30 : 45);
+      }
+      function respond(text) {
+        busy = true;
+        var row = botRow();
+        var bubble = row.querySelector('.bubble');
+        var finish = function () {
+          revealAnswer(bubble, answerFor(text), function () { busy = false; });
+        };
+        if (reduceMotion) {
+          // motion triggers stay off: no dots pulse, no smooth scroll —
+          // straight into the streaming reveal
+          log.appendChild(row);
+          scrollLog(false);
+          finish();
+          return;
+        }
+        bubble.className = 'bubble typing';
+        bubble.innerHTML = '<span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>';
+        log.appendChild(row);
+        scrollLog(true);
+        window.setTimeout(function () {
+          bubble.className = 'bubble';
+          bubble.innerHTML = '';
+          finish();
+        }, 800);
+      }
+      function submitQuery() {
+        var text = input.value.trim();
+        if (!text || busy) return;
+        sparkSend();
+        addUserBubble(text);
+        input.value = '';
+        refreshSendState();
+        respond(text);
+      }
+
+      // --- Adaptive background: shift the weave to match the query ---
+      // Visual response only (no AI/network). Keywords map to a theme.
+      var THEMES = [
+        { name: 'theme-outback', re: /\b(uluru|outback|desert|alice|kata tjuta|red centre|kakadu|darwin|kimberley|spinifex)\b/ },
+        { name: 'theme-reef',    re: /\b(reef|coral|dive|diving|snorkel|snorkelling|snorkeling|cairns|whitsundays|barrier|tropical|queensland)\b/ },
+        { name: 'theme-coast',   re: /\b(beach|beaches|surf|surfing|swim|swimming|bondi|byron|noosa|coast|coastal|ocean|sand|gold coast)\b/ }
+      ];
+      var currentTheme = '';
+      function detectTheme(text) {
+        var q = text.toLowerCase();
+        for (var i = 0; i < THEMES.length; i++) if (THEMES[i].re.test(q)) return THEMES[i].name;
+        return '';
+      }
+      function applyTheme(next) {
+        if (next === currentTheme) return;
+        currentTheme = next;
+        // gentle dissolve: fade the weave out, swap the pattern, fade back in
+        hero.classList.add('weave-shift');
+        window.setTimeout(function () {
+          hero.classList.remove('theme-outback', 'theme-reef', 'theme-coast');
+          if (next) hero.classList.add(next);
+          hero.classList.remove('weave-shift');
+        }, 280);
+      }
+
+      input.addEventListener('input', function () {
+        refreshSendState();
+        applyTheme(detectTheme(input.value));
+      });
+
+      // Enter mirrors the Send click — same scripted flow.
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && input.value.trim().length > 0) submitQuery();
+      });
+
+      // Category chips prefill, then auto-send after a beat — the question
+      // is briefly seen entering the input before it flies. (No auto-send
+      // while a reply is playing; the prefill just waits in the field.)
+      document.querySelectorAll('.chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          input.value = chip.getAttribute('data-prefill') || chip.textContent.trim();
+          input.focus();
+          refreshSendState();
+          applyTheme(detectTheme(input.value));
+          if (!busy) window.setTimeout(submitQuery, 300);
+        });
+      });
+
+      // Send — scripted reply for the demo questions, fallback otherwise.
+      // TODO: the real backend replaces respond() (submit to the concierge).
+      send.addEventListener('click', function () {
+        if (input.value.trim().length > 0) submitQuery();
+        else sparkSend(); // empty input: physical feedback only
+      });
+
+      // Floating CTA — placeholder hook only.
+      // TODO: wire to backend stub (open the concierge experience).
+      document.getElementById('cta-ask').addEventListener('click', function () {
+        input.focus();
+      });
+    })();
+  </script>
+</body>
+</html>
