@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!-- Source for og-image.png (1200×630). The card sits in a 20px paper margin so the
+     screenshot can be center-cropped past headless Chrome's rounded window corners:
+
+     chrome --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 \
+       --window-size=1240,670 --virtual-time-budget=10000 --screenshot=og-big.png og-card.html
+     sips -c 1260 2400 og-big.png --out og-crop.png && sips -z 630 1200 og-crop.png --out og-image.png
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet" />
+<style>
+  /* 'Red Centre' tokens — mirror index.html's :root */
+  :root {
+    --paper: #FAF5EC;
+    --ink: #2B1D14;
+    --ink-55: rgba(43, 29, 20, 0.56);
+    --ochre: #A6431F;
+    --ochre-deep: #7E3014;
+    --eucalypt: #1F5C45;
+    --ochre-line: rgba(166, 67, 31, 0.32);
+    --diamond-grad: linear-gradient(135deg, #C96A3C, #7E3014);
+    --wordmark-grad: linear-gradient(180deg, #6B3A22, #2B1D14);
+    --font-display: "Young Serif", Georgia, serif;
+    --font-ui: "Figtree", system-ui, -apple-system, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1240px; height: 670px; overflow: hidden; background: var(--paper); }
+  .card {
+    position: relative;
+    width: 1200px; height: 630px;
+    margin: 20px;
+    overflow: hidden;
+    background: var(--paper);
+    font-family: var(--font-ui);
+    color: var(--ink);
+  }
+
+  /* 'Red Centre View' line-art, bottom-right, same artwork as the page */
+  .deco-uluru {
+    position: absolute; right: -20px; bottom: -24px;
+    width: 560px; color: var(--ochre);
+  }
+  .deco-uluru svg { display: block; width: 100%; height: auto; }
+
+  .inner {
+    position: relative; z-index: 1;
+    height: 100%;
+    padding: 64px 80px 56px;
+    display: flex; flex-direction: column;
+  }
+
+  .brand { display: flex; align-items: center; gap: 18px; }
+  /* circular mark with the gradient diamond — matches the page's topbar */
+  .mark {
+    width: 56px; height: 56px; border-radius: 50%;
+    border: 1.5px solid var(--ochre-line);
+    background: var(--paper);
+    box-shadow: inset 0 0 16px rgba(166, 67, 31, 0.16);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .mark .diamond {
+    width: 18px; height: 18px; border-radius: 3px;
+    background: var(--diamond-grad);
+    transform: rotate(45deg);
+  }
+  .wordmark {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: 26px; letter-spacing: 0.26em; padding-left: 0.26em;
+  }
+  .wordmark .name {
+    background: var(--wordmark-grad);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .wordmark .tld { color: var(--ochre); }
+
+  .display {
+    margin-top: 66px;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 148px; line-height: 0.94;
+    letter-spacing: -0.01em;
+  }
+  .display .accent { color: var(--ochre); }
+
+  .tagline {
+    margin-top: 34px;
+    font-size: 28px; font-weight: 300;
+    color: var(--ink-55);
+    letter-spacing: 0.01em;
+  }
+
+  /* eucalypt green — the page's conversion accent, reserved for this pill */
+  .acquire {
+    margin-top: auto;
+    display: inline-flex; align-items: center; gap: 14px;
+    align-self: flex-start;
+    padding: 15px 28px;
+    border: 1px solid rgba(31, 92, 69, 0.42);
+    border-radius: 999px;
+    background: rgba(31, 92, 69, 0.06);
+    color: var(--eucalypt);
+    font-size: 20px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .acquire .diamond {
+    width: 10px; height: 10px; border-radius: 2px;
+    background: var(--eucalypt);
+    transform: rotate(45deg);
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="deco-uluru">
+    <svg viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+        <!-- low desert sun, far behind the rock -->
+        <g stroke-opacity="0.14">
+          <circle cx="470" cy="150" r="56"/>
+        </g>
+        <circle cx="470" cy="150" r="80" stroke-opacity="0.08"/>
+        <!-- Uluru — main silhouette -->
+        <g stroke-opacity="0.42">
+          <path d="M56 330 C84 260 132 219 205 205 C290 189 372 191 440 207 C502 222 536 272 558 330"/>
+        </g>
+        <!-- summit undulation -->
+        <path d="M150 231 C205 214 265 207 325 207" stroke-opacity="0.16"/>
+        <!-- runoff striations down the face -->
+        <g stroke-opacity="0.24">
+          <path d="M142 235 C152 267 160 299 164 330"/>
+          <path d="M198 213 C206 251 212 291 216 330"/>
+          <path d="M258 201 C262 243 266 287 268 330"/>
+          <path d="M322 197 C324 241 326 285 326 330"/>
+          <path d="M386 200 C384 242 382 286 381 330"/>
+          <path d="M446 211 C440 251 435 291 433 330"/>
+          <path d="M498 231 C488 263 480 297 476 330"/>
+        </g>
+        <g stroke-opacity="0.12">
+          <path d="M170 223 C178 258 184 295 188 330"/>
+          <path d="M228 206 C234 247 238 289 241 330"/>
+          <path d="M290 199 C293 242 296 286 297 330"/>
+          <path d="M354 198 C355 241 355 286 354 330"/>
+          <path d="M416 204 C412 245 409 288 407 330"/>
+          <path d="M472 220 C464 255 458 293 455 330"/>
+        </g>
+        <!-- ground line -->
+        <path d="M20 330 L620 330" stroke-opacity="0.20"/>
+        <!-- desert ripples -->
+        <g stroke-opacity="0.14">
+          <path d="M40 356 Q100 348 160 356 T280 356 T400 356 T520 356"/>
+          <path d="M100 380 Q160 372 220 380 T340 380 T460 380"/>
+          <path d="M60 404 Q120 396 180 404 T300 404 T420 404 T540 404"/>
+        </g>
+      </g>
+      <!-- spinifex seeds along the ripples, evening stars above -->
+      <g fill="currentColor" fill-opacity="0.45">
+        <circle cx="86" cy="352" r="1.8"/><circle cx="300" cy="360" r="1.8"/><circle cx="470" cy="352" r="1.8"/>
+        <circle cx="180" cy="384" r="1.8"/><circle cx="400" cy="386" r="1.8"/>
+        <circle cx="90" cy="120" r="2.2"/><circle cx="152" cy="78" r="1.8"/><circle cx="242" cy="126" r="2"/>
+        <circle cx="560" cy="88" r="2.2"/><circle cx="602" cy="150" r="1.8"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="inner">
+    <div class="brand">
+      <span class="mark"><span class="diamond"></span></span>
+      <div class="wordmark"><span class="name">ASKAUSTRALIA</span><span class="tld">.AI</span></div>
+    </div>
+
+    <h1 class="display">Just<br /><span class="accent">Ask</span></h1>
+
+    <p class="tagline">Your Australia AI travel guide — instant local answers, without the noise.</p>
+
+    <div class="acquire">
+      <span class="diamond"></span>
+      Premium domain available for acquisition
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

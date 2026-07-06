@@ -4,13 +4,31 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A **design-only** landing page for askaustralia.ai — fourth property in the Noustelos Studio "Ask" network (asksantorini.ai → asksingapore.ai → asksydney.ai → askaustralia.ai). Everything lives in a single file: [index.html](index.html) — vanilla HTML/CSS/JS, no frameworks, no build step, no backend, no dependencies. Standalone: zero sister-site dependency (sister links only).
+A **design-only** landing page for askaustralia.ai — fourth property in the Noustelos Studio "Ask" network (asksantorini.ai → asksingapore.ai → asksydney.ai → askaustralia.ai → asknewyork.ai). The page lives in a single file: [index.html](index.html) — vanilla HTML/CSS/JS, no frameworks, no build step, no backend, no dependencies. Standalone: zero sister-site dependency (sister links only). The repo root also carries a small discovery/SEO layer: [robots.txt](robots.txt), [sitemap.xml](sitemap.xml), [llms.txt](llms.txt), [og-image.png](og-image.png) (the only binary asset) and its source [og-card.html](og-card.html).
 
 There is intentionally **no AI or network logic**. The chat is a **SCRIPTED DEMO**: four hardcoded Q→A pairs matching the chip prefills play a typing-dots + word-by-word reveal; any other input gets a fallback line. All client-side — the real backend later replaces the `SCRIPTED` map + `respond()` in the inline script (the hooks stay put). Treat this repo as the visual source of truth; do not add fetch/API/state-management code unless explicitly asked.
 
 **Honesty rule: the demo must not fake live-AI signals.** The bold `.caption` under the category chips discloses the scripted demo and links to the live concierge at [asksantorini.ai](https://asksantorini.ai) (the only disclosure line — there is no separate `.disclaimer`), and the chat-window status label reads "Live Demo · Ask Australia AI". Keep both honest until the real backend lands.
 
-The commercial goal of the page is to **sell the domain**: the `.acquire` pill above the topbar states availability and links out via `mailto:` to `info@asksantorini.ai` (the only outbound contact — keep it a plain mailto, no forms; switch to `info@askaustralia.ai` once that mailbox is set up). The `.foot` footer links to all three sister domains [asksantorini.ai](https://asksantorini.ai), [asksingapore.ai](https://asksingapore.ai) and [asksydney.ai](https://asksydney.ai), and the bottom-left `.studio-mark` links to [noustelos.gr](https://noustelos.gr) — all signal the brand network. `<head>` carries the canonical URL, Open Graph/Twitter cards, an inline SVG favicon, and JSON-LD, so shared links preview well for prospective buyers.
+The commercial goal of the page is to **sell the domain**: the `.acquire` pill above the topbar states availability and links out via `mailto:` to `info@asksantorini.ai` (the only outbound contact — keep it a plain mailto, no forms; switch to `info@askaustralia.ai` once that mailbox is set up). The `.foot` footer links to all four sister domains [asksantorini.ai](https://asksantorini.ai), [asksingapore.ai](https://asksingapore.ai), [asksydney.ai](https://asksydney.ai) and [asknewyork.ai](https://asknewyork.ai), and the bottom-left `.studio-mark` links to [noustelos.gr](https://noustelos.gr) — all signal the brand network. `<head>` carries the canonical URL, Open Graph/Twitter cards (`summary_large_image` + `og:image` → `https://askaustralia.ai/og-image.png`), an inline SVG favicon, and JSON-LD, so shared links preview well for prospective buyers.
+
+## Discovery / SEO layer
+
+- **[robots.txt](robots.txt)** — allows everything, points to the sitemap.
+- **[sitemap.xml](sitemap.xml)** — single URL; bump `<lastmod>` on meaningful page changes.
+- **[llms.txt](llms.txt)** — the AI-crawler summary. **Honesty rule applies here too: it must never present the scripted demo as live AI.** Keep its "Sister concierges" list in sync with the `.foot` footer (same sisters: asksantorini, asksingapore, asksydney, asknewyork — never askaustralia itself).
+- **[og-image.png](og-image.png)** — 1200×630 social card referenced from `<head>`. Regenerate from [og-card.html](og-card.html) (a standalone Red Centre card mirroring the hero; keep its `:root` tokens in sync with index.html) via headless Chrome + `sips`:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+  --disable-gpu --hide-scrollbars --force-device-scale-factor=2 \
+  --window-size=1240,670 --virtual-time-budget=10000 \
+  --screenshot=og-big.png og-card.html
+sips -c 1260 2400 og-big.png --out og-crop.png
+sips -z 630 1200 og-crop.png --out og-image.png
+```
+
+The card sits in a 20px paper margin inside a 1240×670 window and is center-cropped because headless Chrome paints rounded window corners black — don't drop the margin/crop. Eyeball the final PNG before committing; delete the `og-big.png`/`og-crop.png` intermediates.
 
 ## Deploy
 
