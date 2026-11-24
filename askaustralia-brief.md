@@ -32,7 +32,7 @@ The demo must never fake live-AI signals:
 
 | Item | Decision |
 |---|---|
-| Acquisition contact | `mailto:info@asksantorini.ai?subject=Acquisition enquiry — askaustralia.ai` (plain mailto, **no forms**; switch to `info@askaustralia.ai` once that mailbox exists) |
+| Acquisition contact | `mailto:info@noustelos.gr?subject=Acquisition enquiry — askaustralia.ai` (plain mailto, **no forms**; studio address, deliberately not on the for-sale domain) |
 | Sister links | Footer: **"Sister concierges · asksantorini.ai · asksingapore.ai · asksydney.ai"** (all three). Demo-disclosure caption links to **asksantorini.ai** only (it is the live concierge). |
 | Studio mark | Bottom-left, links to **noustelos.gr** |
 | Chip categories | Same four, localized: **Restaurants / Hotels / Car rental / Directions** |
